@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Surplus, Their Supper!\nInstantly list leftover food for local NGO's to collect."
+                android:text="Waste Less. Give More!\nInstantly list leftover food for local NGO's to collect."
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:gravity="center"
