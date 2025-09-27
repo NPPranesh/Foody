@@ -111,5 +111,3 @@ class RegisterActivity : AppCompatActivity() {
         passwordInput.text.clear()
     }
 }
-
-
