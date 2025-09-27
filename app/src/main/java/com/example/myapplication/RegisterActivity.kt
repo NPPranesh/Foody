@@ -28,7 +28,7 @@ class RegisterActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register) // make sure XML name matches
+        setContentView(R.layout.login) // make sure XML name matches
 
 
         nameInput = findViewById(name_input)
