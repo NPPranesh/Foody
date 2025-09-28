@@ -17,7 +17,7 @@ import com.example.myapplication.R
 import com.example.myapplication.R.id.name_input
 import com.example.myapplication.R.id.phone_input
 
-class RegisterActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     private lateinit var nameInput: EditText
     private lateinit var emailInput: EditText
@@ -95,7 +95,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             runOnUiThread {
-                Toast.makeText(this@RegisterActivity, result, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@Login, result, Toast.LENGTH_LONG).show()
                 submitButton.isEnabled = true
                 submitButton.text = "Submit"
 
