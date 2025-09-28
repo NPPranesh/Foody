@@ -7,8 +7,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import android.net.Uri
+import androidx.activity.result.contract.*
 
 class CreatePostActivity : AppCompatActivity() {
+    private lateinit var imageView: ImageView // The ImageView to display the result
+
+    private val galleryLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent() // Contract for picking a piece of content (like an image)
+    ) { uri: Uri? ->
+        // This code runs when the user successfully picks an image.
+        if (uri != null) {
+            imageView.setImageURI(uri) // Display the image in the ImageView
+            // Optionally, store the URI for later use (uploading, etc.)
+        }
+    }
 
     // Declare all interactive form elements
     private lateinit var backButton: ImageView
@@ -18,6 +31,9 @@ class CreatePostActivity : AppCompatActivity() {
     private lateinit var instructionsInput: TextInputEditText
     private lateinit var locationInput: TextInputEditText
     private lateinit var confirmButton: MaterialButton
+    private lateinit var addimage: ImageView
+    private var currentImageCount = 0
+    private var MAX_IMAGE_COUNT = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +49,7 @@ class CreatePostActivity : AppCompatActivity() {
         instructionsInput = findViewById(R.id.instructions_input)
         locationInput = findViewById(R.id.location_input)
         confirmButton = findViewById(R.id.confirm_button)
+        addimage = findViewById(R.id.add_image)
 
         // 2. Set Click Listeners
 
@@ -44,6 +61,19 @@ class CreatePostActivity : AppCompatActivity() {
         // Handle Confirm Button click (Submits the form)
         confirmButton.setOnClickListener {
             submitPost()
+        }
+        addimage.setOnClickListener {
+            if (currentImageCount < MAX_IMAGE_COUNT) {
+                // Launch the gallery chooser
+                galleryLauncher.launch("image/*")
+            } else {
+                // Show an immediate error message
+                Toast.makeText(
+                    this,
+                    "⚠️ Maximum of $MAX_IMAGE_COUNT images reached.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
@@ -57,7 +87,7 @@ class CreatePostActivity : AppCompatActivity() {
         val location = locationInput.text.toString().trim()
 
         // Simple validation check
-        if (title.isEmpty() || description.isEmpty() || location.isEmpty() || pickupTime.isEmpty()) {
+        if (title.isEmpty() || description.isEmpty() || location.isEmpty() || pickupTime.isEmpty() || currentImageCount == 0) {
             Toast.makeText(this, "Please fill in Title, Description, and Location.", Toast.LENGTH_LONG).show()
             return
         }

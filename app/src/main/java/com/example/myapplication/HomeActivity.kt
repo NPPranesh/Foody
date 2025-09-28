@@ -1,14 +1,16 @@
 package com.example.myapplication
-
+import com.example.myapplication.CreateActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 // Removed: all kotlinx.coroutines and java.io/net imports
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.w3c.dom.Text
 
 class HomeActivity : AppCompatActivity() {
 
@@ -20,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var search: ImageView
     private lateinit var orders: ImageView
     private lateinit var profile: ImageView
+    private lateinit var greet: TextView
 
 
     // Removed: home, search, add, orders, settings variables
@@ -37,7 +40,11 @@ class HomeActivity : AppCompatActivity() {
         search = findViewById(R.id.search)
         orders = findViewById(R.id.orders)
         profile = findViewById(R.id.profile)
+        greet = findViewById(R.id.greeting_text)
+        val NAME_KEY = "EXTRA_NAME"
+        val name = intent.getStringExtra(NAME_KEY)
 
+        greet.text = "Hello, "+name+"!"
         // Add action button listeners here
         search.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
