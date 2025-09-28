@@ -13,22 +13,20 @@ class CreateActivity : AppCompatActivity() {
 
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
-    private lateinit var loginButton: Button
-    private lateinit var createAccountText: TextView
+    private lateinit var submitButton: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // ✅ Make sure this matches your XML file (e.g. activity_login.xml)
-        setContentView(com.example.myapplication.R.layout.create_account)
+        setContentView(R.layout.create_account)
 
-        emailInput = findViewById(com.example.myapplication.R.id.email_input)
-        passwordInput = findViewById(com.example.myapplication.R.id.password_input)
-        loginButton = findViewById(com.example.myapplication.R.id.submit_button)
-
+        emailInput = findViewById(R.id.email_input)
+        passwordInput = findViewById(R.id.password_input)
+        submitButton = findViewById(R.id.submit_button)
 
         // ✅ Login button click
-        loginButton.setOnClickListener {
+        submitButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
@@ -37,13 +35,10 @@ class CreateActivity : AppCompatActivity() {
             } else {
                 // TODO: You can add login logic here (e.g. connect to backend /login)
                 Toast.makeText(this, "Login clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-        }
-
-        // ✅ "Create New Account" click → Open RegisterActivity
-        createAccountText.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
         }
     }
 }

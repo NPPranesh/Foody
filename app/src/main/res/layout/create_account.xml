@@ -150,7 +150,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter your Password"
                         android:inputType="textPassword"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/hint_gray"
                         android:background="@drawable/text_input"
                         android:padding="16dp"

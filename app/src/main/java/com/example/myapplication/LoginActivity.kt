@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
@@ -13,6 +14,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
     private lateinit var signinButton: Button
+    private lateinit var createaccount: TextView
+    private lateinit var forgetpassword: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,14 @@ class LoginActivity : AppCompatActivity() {
         emailInput = findViewById(R.id.email_input)
         passwordInput = findViewById(R.id.password_input)
         signinButton = findViewById(R.id.sign_in_button)
+        createaccount = findViewById(R.id.create_account_link)
+        forgetpassword = findViewById(R.id.forgot_password_link)
+
+        createaccount.setOnClickListener {
+            val intent = Intent(this, CreateActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // Set the click listener for your sign-in button
         signinButton.setOnClickListener {
