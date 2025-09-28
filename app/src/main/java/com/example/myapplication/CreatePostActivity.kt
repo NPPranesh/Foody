@@ -88,7 +88,7 @@ class CreatePostActivity : AppCompatActivity() {
 
         // Simple validation check
         if (title.isEmpty() || description.isEmpty() || location.isEmpty() || pickupTime.isEmpty() || currentImageCount == 0) {
-            Toast.makeText(this, "Please fill in Title, Description, and Location.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please fill in Title, Description, and Location and add atleast 1 image.", Toast.LENGTH_LONG).show()
             return
         }
 

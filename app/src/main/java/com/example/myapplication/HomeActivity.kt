@@ -58,6 +58,17 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, CreatePostActivity::class.java)
             startActivity(intent)
         }
-
+        profile.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
+        postFoodButton.setOnClickListener {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+        findFoodButton.setOnClickListener {
+            val intent = Intent(this, ExploreActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

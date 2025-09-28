@@ -22,6 +22,9 @@
         <activity android:name=".HomeActivity" android:exported="false" />
         <activity android:name=".CreateActivity" android:exported="false" />
         <activity android:name=".CreatePostActivity" android:exported="false" />
+        <activity android:name=".SettingActivity" android:exported="false" />
+        <activity android:name=".ExploreActivity" android:exported="false" />
+
     </application>
 
 </manifest>
