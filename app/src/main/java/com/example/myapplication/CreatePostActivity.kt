@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
-class CreatepostActivity : AppCompatActivity() {
+class CreatePostActivity : AppCompatActivity() {
 
     // Declare all interactive form elements
     private lateinit var backButton: ImageView
