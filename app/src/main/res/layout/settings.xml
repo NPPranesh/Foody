@@ -161,7 +161,7 @@
         tools:ignore="DuplicateIds">
 
         <ImageView
-            android:id="@id/home"
+            android:id="@+id/home"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -171,7 +171,7 @@
             android:src="@drawable/home" />
 
         <ImageView
-            android:id="@id/add"
+            android:id="@+id/add"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -183,7 +183,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/search"
+            android:id="@+id/search"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -195,7 +195,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/orders"
+            android:id="@+id/orders"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -207,7 +207,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/profile"
+            android:id="@+id/profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"

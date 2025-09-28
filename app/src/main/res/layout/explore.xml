@@ -89,7 +89,7 @@
         tools:ignore="DuplicateIds">
 
         <ImageView
-            android:id="@id/home"
+            android:id="@+id/home"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -99,7 +99,7 @@
             android:src="@drawable/home" />
 
         <ImageView
-            android:id="@id/add"
+            android:id="@+id/add"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -111,7 +111,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/search"
+            android:id="@+id/search"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -123,7 +123,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/orders"
+            android:id="@+id/orders"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -135,7 +135,7 @@
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@id/profile"
+            android:id="@+id/profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -158,10 +158,9 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/search_2"
         app:closeIcon="@null"
@@ -173,17 +172,4 @@
         app:queryHint="What are you looking for?"
         app:searchIcon="@drawable/search_black">
     </androidx.appcompat.widget.SearchView>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="end|center_vertical"
-        android:contentDescription="Voice Search"
-        android:src="@drawable/mic"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="345dp"
-        tools:layout_editor_absoluteY="79dp">
-
-    </ImageView>
 </androidx.constraintlayout.widget.ConstraintLayout>
