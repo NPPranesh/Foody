@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         createaccount.setOnClickListener {
             val intent = Intent(this, CreateActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         // Set the click listener for your sign-in button
@@ -48,9 +47,6 @@ class LoginActivity : AppCompatActivity() {
 
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-
-                // This prevents the user from going back to the login screen
-                finish()
 
             } else {
                 // If fields are empty, show an error message

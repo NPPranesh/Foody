@@ -37,7 +37,6 @@ class CreateActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login clicked", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-                finish()
             }
         }
     }

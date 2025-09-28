@@ -42,7 +42,15 @@ class HomeActivity : AppCompatActivity() {
         search.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
-            finish()
         }
+        home.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+        add.setOnClickListener {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
