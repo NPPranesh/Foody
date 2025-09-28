@@ -95,48 +95,60 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/custom_app_icon"
+            android:id="@+id/home"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:contentDescription="App Logo"
-            android:layout_marginHorizontal="40dp"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="30dp"
             android:src="@drawable/home" />
 
         <ImageView
-            android:id="@+id/custom_app"
+            android:id="@+id/add"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:contentDescription="App Logo"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="190dp"
             android:src="@drawable/c_plus"
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@+id/clockwise"
+            android:id="@+id/search"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:contentDescription="Search"
-            android:layout_marginStart="240dp"
+            android:layout_marginStart="110dp"
             android:src="@drawable/search"
             tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@+id/clockwise"
+            android:id="@+id/orders"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:contentDescription="Search"
-            android:layout_marginStart="340dp"
+            android:layout_marginStart="270dp"
+            android:src="@drawable/order"
+            tools:ignore="DuplicateIds" />
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:contentDescription="Search"
+            android:layout_marginStart="350dp"
             android:src="@drawable/google"
             tools:ignore="DuplicateIds" />
 

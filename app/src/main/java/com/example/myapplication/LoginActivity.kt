@@ -1,8 +1,9 @@
-package com.example.myapp
+package com.example.myapplication
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.*
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,16 +15,12 @@ import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
 import com.example.myapplication.R
-import com.example.myapplication.R.id.name_input
-import com.example.myapplication.R.id.phone_input
 
-class Login : AppCompatActivity() {
-
-    private lateinit var nameInput: EditText
+class LoginActivity : AppCompatActivity() {
+    
     private lateinit var emailInput: EditText
-    private lateinit var phoneInput: EditText
     private lateinit var passwordInput: EditText
-    private lateinit var submitButton: Button
+    private lateinit var signinButton: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,27 +28,22 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.login) // make sure XML name matches
 
 
-        nameInput = findViewById(name_input)
+        
         emailInput = findViewById(R.id.email_input)
-        phoneInput = findViewById(phone_input)
         passwordInput = findViewById(R.id.password_input)
-        submitButton = findViewById(R.id.submit_button)
+        signinButton = findViewById(R.id.sign_in_button)
 
-        submitButton.setOnClickListener {
-            val name = nameInput.text.toString().trim()
+        signinButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
-            val phone = phoneInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
-            if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() ||password.isEmpty()) {
                 Toast.makeText(this, "⚠️ Please fill all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val userJson = JSONObject().apply {
-                put("name", name)
                 put("email", email)
-                put("phone", phone)
                 put("password", password)
             }
 
@@ -61,11 +53,11 @@ class Login : AppCompatActivity() {
 
     private fun registerUser(userJson: JSONObject) {
         // disable button while sending request
-        submitButton.isEnabled = false
-        submitButton.text = "Registering..."
+        signinButton.isEnabled = false
+        signinButton.text = "Registering..."
 
         CoroutineScope(Dispatchers.IO).launch {
-            val result = try {
+            /*val result = try {
                 val url = URL("http://10.0.2.2:8080/register") // change IP if using real device
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
@@ -82,32 +74,33 @@ class Login : AppCompatActivity() {
                 val response = reader.readText()
                 reader.close()
 
-                connection.disconnect()
+                connection.disconnect()*/
 
-                if (responseCode == 200) {
-                    "✅ Registered successfully!"
+                if (true) {
+                    "✅ Signed in Successfully!"
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-                    "❌ Failed to register (Error: $responseCode)"
+                    "❌ Failed to register (Error: $)"
                 }
 
-            } catch (e: Exception) {
+            /*} catch (e: Exception) {
                 "⚠️ Error: ${e.localizedMessage}"
-            }
+            }*/
 
-            runOnUiThread {
-                Toast.makeText(this@Login, result, Toast.LENGTH_LONG).show()
-                submitButton.isEnabled = true
-                submitButton.text = "Submit"
+            /*runOnUiThread {
+                Toast.makeText(this@LoginActivity, result, Toast.LENGTH_LONG).show()
+                signinButton.isEnabled = true
+                signinButton.text = "Sign in"
 
                 if (result.startsWith("✅")) clearFields()
-            }
+            }*/
         }
     }
 
     private fun clearFields() {
-        nameInput.text.clear()
         emailInput.text.clear()
-        phoneInput.text.clear()
         passwordInput.text.clear()
     }
 }
